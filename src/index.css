@@ -1,1 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+
+    --font-Play: "Playfair", serif;
+    --font-Cormorant: "Cormorant Garamond", serif;
+    --font-Inter: "Inter", sans-serif;
+
+  --color-background: #14110f;
+  --color-foreground: #f2efe9;
+
+  --color-card: #1c1917;
+  --color-card-foreground: #f2efe9;
+
+  --color-popover: #1c1917;
+  --color-popover-foreground: #f2efe9;
+
+  --color-primary: #d49a26;
+  --color-primary-foreground: #14110f;
+
+  --color-secondary: #2b2623;
+  --color-secondary-foreground: #f2efe9;
+
+  --color-muted: #332d2a;
+  --color-muted-foreground: #9c938c;
+
+  --color-accent: #d49a26;
+  --color-accent-foreground: #14110f;
+
+  --color-destructive: #f87171;
+  --color-destructive-foreground: #f5f5f5;
+
+  --color-border: #3a332e;
+  --color-input: #3a332e;
+  --color-ring: #d49a26;
+
+  --radius: 0.75rem;
+
+  /* Extras */
+  --color-primary-light: #f0b84d;
+  --color-primary-dark: #9c6f1f;
+  --color-wine: #6b2c3a;
+  --color-amber: #f59e0b;
+  --color-cream: #f2e8d9;
+
+  /* Tema alternativo */
+  --color-alt-background: #1c1917;
+  --color-alt-foreground: #f2efe9;
+  --color-alt-primary: #d49a26;
+  --color-alt-primary-foreground: #14110f;
+  --color-alt-accent: #2b2623;
+  --color-alt-accent-foreground: #f2efe9;
+  --color-alt-border: #3a332e;
+  --color-alt-ring: #d49a26;
+}
