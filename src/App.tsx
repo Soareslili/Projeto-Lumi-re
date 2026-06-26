@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import { CartProvider } from "./Contexts/CartProvider";
 import Hero from "./components/Home/Hero";
+import About from "./components/page/About";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Hero />}/>
+            <Route path="/about" element={<About />}/>
           </Routes>
         </main>
         

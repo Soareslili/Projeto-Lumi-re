@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import BgHero from "../../assets/BgHero.png";
 import { collections } from "../../lib/products";
+import life1 from "../../assets/life1.png";
 
 const Hero = () => {
     return (
@@ -60,6 +61,32 @@ const Hero = () => {
           ))}
         </div>
       </section>
+
+       <section className="py-28 mx-auto max-w-7xl px-6 lg:px-10">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="relative">
+                  <img src={life1} alt="Artisan crafting jewelry" loading="lazy" className="w-full aspect-[4/5] object-cover shadow-luxe" />
+                  <div className="absolute -bottom-8 -right-4 md:-right-8 bg-[#FCFAF6] p-6 md:p-8 max-w-[260px] shadow-soft">
+                    <p className="font-display text-4xl text-amber">100+</p>
+                    <p className="text-[11px] tracking-luxe uppercase text-muted-foreground mt-2">Anos de herança artesanal</p>
+                  </div>
+                </div>
+                <div>
+                  <p className="text-[11px] tracking-luxe uppercase text-amber">Nosso Lumière</p>
+                  <h2 className="font-display text-4xl md:text-5xl mt-3 leading-tight">Criado para brilhar para sempre</h2>
+                  <div className="hairline w-20 my-8" />
+                  <p className="text-muted-foreground leading-relaxed">
+                   Há quatro gerações, nosso ateliê transforma metais preciosos e gemas raras em peças destinadas a atravessar gerações. Cada criação é obra de mestres artesãos — a união de um design atemporal com um trabalho artesanal de excelência absoluta.
+                  </p>
+                  <ul className="mt-8 space-y-3 text-sm">
+                    {["Handcrafted in our Parisian atelier", "Ethically sourced 18k gold & diamonds", "Lifetime restoration & care", "Designed as future heirlooms"].map((t) => (
+                      <li key={t} className="flex items-center gap-3"><span className="h-px w-6 bg-amber" />{t}</li>
+                    ))}
+                  </ul>
+                  <Link to="/about" className="inline-block mt-10 px-8 py-4 bg-primary text-primary-foreground text-[11px] tracking-luxe uppercase hover:bg-ink transition">Nossa história</Link>
+                </div>
+              </div>
+            </section>
         </>
        
     )
