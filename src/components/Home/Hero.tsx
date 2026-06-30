@@ -11,9 +11,9 @@ import BgAbout from "../../assets/BgAbout.png";
 import { Star } from "lucide-react";
 
 const testimonials = [
-  { name: "Isabelle R.", role: "Paris", text: "Each piece feels like a quiet love letter — exquisite craftsmanship I now wear every day." },
-  { name: "Aria N.", role: "Milan", text: "The Aurora necklace took my breath away. Lumière sets a new standard for fine jewelry." },
-  { name: "Camille D.", role: "New York", text: "From the velvet box to the final clasp — pure poetry. A heirloom in the making." },
+  { name: "Isabelle R.", role: "Paris", text: "Cada peça parece uma carta de amor silenciosa — um trabalho artesanal primoroso que agora uso todos os dias." },
+  { name: "Aria N.", role: "Milan", text: "O colar Aurora me deixou sem fôlego. A Lumière estabelece um novo padrão para a alta joalheria." },
+  { name: "Camille D.", role: "New York", text: "Do estojo de veludo ao fecho final — pura poesia. Uma futura relíquia de família." },
 ];
 
 const Hero = () => {
@@ -91,7 +91,7 @@ const Hero = () => {
                    Há quatro gerações, nosso ateliê transforma metais preciosos e gemas raras em peças destinadas a atravessar gerações. Cada criação é obra de mestres artesãos — a união de um design atemporal com um trabalho artesanal de excelência absoluta.
                   </p>
                   <ul className="mt-8 space-y-3 text-sm">
-                    {["Handcrafted in our Parisian atelier", "Ethically sourced 18k gold & diamonds", "Lifetime restoration & care", "Designed as future heirlooms"].map((t) => (
+                    {["Feito à mão em nosso ateliê parisiense", "Ouro 18k e diamantes de origem ética", "Restauração e cuidados para toda a vida", "Criados para se tornarem relíquias de família"].map((t) => (
                       <li key={t} className="flex items-center gap-3"><span className="h-px w-6 bg-amber" />{t}</li>
                     ))}
                   </ul>
@@ -105,7 +105,7 @@ const Hero = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="text-center mb-14">
             <p className="text-[11px] tracking-luxe uppercase text-accent">Editorial</p>
-            <h2 className="font-display text-foreground text-4xl md:text-5xl mt-3">Usado com intenção</h2>
+            <h2 className="font-Cormorant text-foreground text-4xl md:text-5xl mt-3">Usado com intenção</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <img src={BgAbout} alt="Editorial 1" loading="lazy" className="w-full h-full object-cover aspect-[3/4] row-span-2 md:row-span-2" />
@@ -121,8 +121,8 @@ const Hero = () => {
        {/* TESTIMONIALS */}
       <section className="py-28 mx-auto max-w-6xl px-6 lg:px-10">
         <div className="text-center mb-14">
-          <p className="text-[11px] tracking-luxe uppercase text-gold">Whispered Praise</p>
-          <h2 className="font-display text-4xl md:text-5xl mt-3">Beloved By Many</h2>
+          <p className="text-[11px] tracking-luxe uppercase text-gold">Louvor Sussurrado</p>
+          <h2 className="font-Cormorant text-4xl md:text-5xl mt-3">Amado por muitos</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t) => (
@@ -139,16 +139,16 @@ const Hero = () => {
       <section className="py-28 bg-[#F7F2E9]">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <p className="text-[11px] tracking-luxe uppercase text-gold">Lumière Privée</p>
-          <h2 className="font-display text-4xl md:text-5xl mt-3">Join Our Exclusive World</h2>
-          <p className="mt-5 text-muted-foreground">Receive private launches, atelier stories and refined inspirations — delivered with care.</p>
+          <h2 className="font-display text-4xl md:text-5xl mt-3">Faça parte do nosso mundo exclusivo</h2>
+          <p className="mt-5 text-muted-foreground">Receba lançamentos exclusivos, histórias do ateliê e inspirações refinadas — entregues com cuidado.</p>
           <form className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" required placeholder="Your email" className="flex-1 bg-alt-foreground border border-gray-400 px-5 py-4 text-sm outline-none focus:border-gold transition" />
-            <button className="bg-primary text-primary-foreground cursor-pointer px-8 py-4 text-[11px] tracking-luxe uppercase hover:bg-ink transition">Subscribe</button>
+            <input type="email" required placeholder="Seu email" className="flex-1 bg-alt-foreground border border-gray-400 px-5 py-4 text-sm outline-none focus:border-gold transition" />
+            <button className="bg-primary text-primary-foreground cursor-pointer px-8 py-4 text-[11px] tracking-luxe uppercase hover:bg-ink transition">Inscrever-se</button>
           </form>
         </div>
       </section>
-        </>
-       
+        
+       </>
     )
 }
 

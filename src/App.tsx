@@ -3,7 +3,9 @@ import Header from "./components/Layout/Header";
 import { CartProvider } from "./Contexts/CartProvider";
 import Hero from "./components/Home/Hero";
 import About from "./components/page/About";
-import {Footer} from "./components/page/Footer";
+import Footer from "./components/page/Footer";
+import Contact from "./components/page/Contact";
+
 
 function App() {
   return (
@@ -15,9 +17,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Hero />}/>
             <Route path="/about" element={<About />}/>
+            <Route path="/contact" element={<Contact />}/>
           </Routes>
         </main>
-        <Footer />
+       <Footer />
       </div>
       </CartProvider>
     </BrowserRouter>
