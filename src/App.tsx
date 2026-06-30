@@ -3,6 +3,7 @@ import Header from "./components/Layout/Header";
 import { CartProvider } from "./Contexts/CartProvider";
 import Hero from "./components/Home/Hero";
 import About from "./components/page/About";
+import {Footer} from "./components/page/Footer";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
             <Route path="/about" element={<About />}/>
           </Routes>
         </main>
-        
+        <Footer />
       </div>
       </CartProvider>
     </BrowserRouter>

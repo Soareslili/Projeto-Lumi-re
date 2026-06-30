@@ -2,7 +2,19 @@
 import { Link } from "react-router-dom";
 import BgHero from "../../assets/BgHero.png";
 import { collections } from "../../lib/products";
+
 import life1 from "../../assets/life1.png";
+import life2 from "../../assets/life2.png";
+import life3 from "../../assets/life3.png";
+import life4 from "../../assets/life4.png";
+import BgAbout from "../../assets/BgAbout.png";
+import { Star } from "lucide-react";
+
+const testimonials = [
+  { name: "Isabelle R.", role: "Paris", text: "Each piece feels like a quiet love letter — exquisite craftsmanship I now wear every day." },
+  { name: "Aria N.", role: "Milan", text: "The Aurora necklace took my breath away. Lumière sets a new standard for fine jewelry." },
+  { name: "Camille D.", role: "New York", text: "From the velvet box to the final clasp — pure poetry. A heirloom in the making." },
+];
 
 const Hero = () => {
     return (
@@ -87,6 +99,54 @@ const Hero = () => {
                 </div>
               </div>
             </section>
+
+            {/* GALLERY */}
+      <section className="py-20 bg-[#0C0806] text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <p className="text-[11px] tracking-luxe uppercase text-accent">Editorial</p>
+            <h2 className="font-display text-foreground text-4xl md:text-5xl mt-3">Usado com intenção</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <img src={BgAbout} alt="Editorial 1" loading="lazy" className="w-full h-full object-cover aspect-[3/4] row-span-2 md:row-span-2" />
+            <img src={life2} alt="Editorial 2" loading="lazy" className="w-full object-cover aspect-square" />
+            <img src={life3} alt="Editorial 3" loading="lazy" className="w-full object-cover aspect-[3/4] row-span-2" />
+            <img src={life4} alt="Editorial 4" loading="lazy" className="w-full object-cover aspect-square" />
+            <img src={life2} alt="Editorial 5" loading="lazy" className="w-full object-cover aspect-square hidden md:block" />
+            <img src={life4} alt="Editorial 6" loading="lazy" className="w-full object-cover aspect-square hidden md:block" />
+          </div>
+        </div>
+      </section>
+
+       {/* TESTIMONIALS */}
+      <section className="py-28 mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="text-center mb-14">
+          <p className="text-[11px] tracking-luxe uppercase text-gold">Whispered Praise</p>
+          <h2 className="font-display text-4xl md:text-5xl mt-3">Beloved By Many</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((t) => (
+            <figure key={t.name} className="bg-[#F7F2E9] p-10 text-center">
+              <div className="flex justify-center gap-0.5 mb-4 text-accent">{Array.from({length:5}).map((_,i)=><Star key={i} className="h-3 w-3 fill-accent" />)}</div>
+              <blockquote className="font-display text-gray-600 text-xl leading-relaxed">"{t.text}"</blockquote>
+              <figcaption className="mt-6 text-[11px] tracking-luxe uppercase text-muted-foreground">{t.name} · {t.role}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* NEWSLETTER */}
+      <section className="py-28 bg-[#F7F2E9]">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <p className="text-[11px] tracking-luxe uppercase text-gold">Lumière Privée</p>
+          <h2 className="font-display text-4xl md:text-5xl mt-3">Join Our Exclusive World</h2>
+          <p className="mt-5 text-muted-foreground">Receive private launches, atelier stories and refined inspirations — delivered with care.</p>
+          <form className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" required placeholder="Your email" className="flex-1 bg-alt-foreground border border-gray-400 px-5 py-4 text-sm outline-none focus:border-gold transition" />
+            <button className="bg-primary text-primary-foreground cursor-pointer px-8 py-4 text-[11px] tracking-luxe uppercase hover:bg-ink transition">Subscribe</button>
+          </form>
+        </div>
+      </section>
         </>
        
     )
