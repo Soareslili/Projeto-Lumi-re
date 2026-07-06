@@ -1,0 +1,41 @@
+{
+    "sucess": true,
+    "products": [
+ {
+  "productId": 1,
+  "name": "Colar de Diamantes Aurora",
+  "price": 4.295,
+  "category": "Colares",
+  "description": "Colar de diamantes Aurora é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com diamantes de alta qualidade, este colar adiciona um toque de brilho e glamour ao seu visual.",
+  "imageUrl": "/img/ColarPedra.png"
+ },
+
+ {
+  "productId": 2,
+  "name": "Pulseira de Ouro Elegance",
+  "price": 2.125,
+  "category": "Pulseiras",
+  "description": "Pulseira de ouro Elegance é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com ouro de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
+  "imageUrl": "/img/Brilhante.png"
+ },
+
+ {
+  "productId": 3,
+  "name": "Anel de Esmeralda Royal",
+  "price": 2.125,
+  "category": "Aneis",
+  "description": "Anel de esmeralda Royal é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com esmeraldas de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
+  "imageUrl": "/img/Esmeralda.png"
+ },
+
+ {
+  "productId": 4,
+  "name": "Brincos de Safira Celestial",
+  "price": 1.299,
+  "category": "Brincos",
+  "description": "Brincos de safira Celestial é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com safiras de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
+  "imageUrl": "/img/BrincosElegancia.png"
+ }
+    ]
+}
+  

@@ -35,7 +35,7 @@ const Hero = () => {
                     </p>
                     <div className="mt-10 flex flex-wrap gap-4">
                         <Link
-                            to="/collections"
+                            to="/products"
                             className="bg-white text-accent-foreground px-8 py-4 text-[11px] tracking-luxe uppercase hover:bg-accent transition"
                         >
                            Conheça Nossas Coleções

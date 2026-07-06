@@ -1,25 +1,22 @@
 import { useState, useEffect } from "react";
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
-import { Link, } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../Contexts/CartContext";
-// ✅ importando o hook useCart do CartProvider
-
-
 
 const navLinks = [
   { to: "/", label: "Home" },
-  { to: "/collections", label: "Novas Coleções" },
+  { to: "/products", label: "Novas Coleções" },
   { to: "/about", label: "Sobre" },
   { to: "/contact", label: "Contato" },
 ];
 
-
-
 const Header = () => {
-  const { totalItems, openCart } = useCart(); // ✅ aqui dentro
+  const { totalItems, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -27,14 +24,28 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Texto escuro quando: não está na home OU já rolou a página
+  const isDark = !isHome || scrolled;
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/95 backdrop-blur-md shadow-gold" : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled || !isHome
+          ? "bg-background/95 backdrop-blur-md shadow-gold"
+          : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <Link to="/" className="font-serif text-2xl font-bold text-primary">
-          Lumière <span className="text-foreground">Maison</span>
+        <Link
+          to="/"
+          className={`font-serif text-2xl font-bold transition-colors duration-500 ${
+            isDark ? "text-primary" : "text-white"
+          }`}
+        >
+          Lumière{" "}
+          <span className={isDark ? "text-foreground" : "text-white/80"}>
+            Maison
+          </span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
@@ -42,7 +53,9 @@ const Header = () => {
             <Link
               key={link.label}
               to={link.to}
-              className="text-sm font-sans-body font-medium text-foreground/80 hover:text-primary transition-colors duration-300 tracking-wide uppercase"
+              className={`text-sm font-sans-body font-medium tracking-wide uppercase transition-colors duration-300 hover:text-primary ${
+                isDark ? "text-foreground/80" : "text-white/90"
+              }`}
             >
               {link.label}
             </Link>
@@ -50,12 +63,18 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button className="p-2 text-alt-accent-foreground cursor-pointer hover:text-ring transition-colors">
+          <button
+            className={`p-2 cursor-pointer transition-colors hover:text-primary ${
+              isDark ? "text-foreground/80" : "text-white/90"
+            }`}
+          >
             <Search size={20} />
           </button>
           <button
             onClick={openCart}
-            className="p-2 text-alt-accent-foreground cursor-pointer hover:text-ring transition-colors relative"
+            className={`p-2 cursor-pointer transition-colors relative hover:text-primary ${
+              isDark ? "text-foreground/80" : "text-white/90"
+            }`}
             aria-label="Open cart"
           >
             <ShoppingBag size={20} />
@@ -66,36 +85,32 @@ const Header = () => {
             )}
           </button>
         </div>
+
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className={`lg:hidden ${isDark ? "text-foreground" : "text-white"}`}
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
-      <button
-        onClick={() => setMobileOpen(!mobileOpen)}
-        className="lg:hidden text-foreground"
-      >
-        {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-      </button>
-    
-
-      {
-    mobileOpen && (
-      <div className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border animate-fade-in">
-        <div className="flex flex-col px-6 py-4 gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.label}
-              onClick={() => setMobileOpen(false)}
-              className="text-foreground/80 hover:text-primary transition-colors text-sm uppercase tracking-wide"
-            >
-              {link.label}
-            </Link>
-          ))}
-         
+      {mobileOpen && (
+        <div className="lg:hidden bg-background/98 backdrop-blur-md border-t border-border animate-fade-in">
+          <div className="flex flex-col px-6 py-4 gap-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => setMobileOpen(false)}
+                className="text-foreground/80 hover:text-primary transition-colors text-sm uppercase tracking-wide"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    )
-  }
-    </header >
+      )}
+    </header>
   );
 };
 
