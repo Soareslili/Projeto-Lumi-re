@@ -1,93 +1,261 @@
-
-import { useState } from "react";
+   import { useState } from "react";
 import { useCart } from "../../Contexts/CartContext";
-import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "../../components/ui/dialog";
+import { Input } from "../../components/ui/input";
+import { Label } from "../../components/ui/label";
+import { useToast } from "../../hooks/use-toast";
+import { CheckCircle } from "lucide-react";
 
-const fmt = (value: number) =>
-  value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const CheckoutModal = () => {
+  const { isCheckoutOpen, closeCheckout, items, totalPrice, clearCart } = useCart();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-const Checkout = () => {
-  const { items, totalPrice, clearCart } = useCart();
-  const [done, setDone] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    city: "",
+    zipCode: "",
+    cardNumber: "",
+    expiry: "",
+    cvv: "",
+  });
 
-  if (done) {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+  
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
+
+    toast({
+      title: "Order placed successfully!",
+      description: "You will receive a confirmation email shortly.",
+    });
+
+   
+    setTimeout(() => {
+      clearCart();
+      setIsSuccess(false);
+      closeCheckout();
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        address: "",
+        city: "",
+        zipCode: "",
+        cardNumber: "",
+        expiry: "",
+        cvv: "",
+      });
+    }, 2000);
+  };
+
+  const handleOpenChange = (open: boolean) => {
+    if (!open && !isSubmitting) {
+      closeCheckout();
+      setIsSuccess(false);
+    }
+  };
+
+  if (isSuccess) {
     return (
-      <div className="pt-40 pb-24 text-center mx-auto max-w-xl px-6">
-        <p className="text-[11px] tracking-luxe uppercase text-gold">Merci</p>
-        <h1 className="font-display text-5xl mt-4">Your Treasures Are On Their Way</h1>
-        <p className="mt-6 text-muted-foreground">A confirmation has been sent to you. Each piece is being prepared with the utmost care.</p>
-        <Link to="/" className="inline-block mt-10 px-8 py-4 bg-primary text-primary-foreground text-[11px] tracking-luxe uppercase">Return Home</Link>
-      </div>
+      <Dialog open={isCheckoutOpen} onOpenChange={handleOpenChange}>
+        <DialogContent className="sm:max-w-md">
+          <div className="flex flex-col items-center justify-center py-8 text-center">
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+              <CheckCircle className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="text-xl font-semibold text-foreground mb-2">
+            Obrigado pelo seu pedido!
+            </h3>
+            <p className="text-muted-foreground">
+            Seu pedido foi processado com sucesso. Você receberá um email de confirmação em breve.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     );
   }
 
   return (
-    <div className="pt-32 pb-24 mx-auto max-w-6xl px-6 lg:px-10">
-      <div className="text-center mb-14">
-        <p className="text-[11px] tracking-luxe uppercase text-gold">Final Step</p>
-        <h1 className="font-display text-5xl mt-3">Checkout</h1>
-      </div>
+    <Dialog open={isCheckoutOpen} onOpenChange={handleOpenChange}>
+      <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto bg-background">
+        <DialogHeader>
+          <DialogTitle>Checkout</DialogTitle>
+          <DialogDescription>
+           Preencha os detalhes do seu pedido abaixo
+          </DialogDescription>
+        </DialogHeader>
 
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          clearCart();
-          setDone(true);
-        }}
-        className="grid lg:grid-cols-[1.3fr_1fr] gap-14"
-      >
-        <div className="space-y-10">
-          <fieldset className="space-y-5">
-            <legend className="text-[11px] tracking-luxe uppercase text-gold mb-3">Contact</legend>
-            {["Full Name", "Email", "Phone"].map((l) => (
-              <input key={l} required placeholder={l} className="w-full border-b border-border bg-transparent py-3 outline-none focus:border-gold transition" />
-            ))}
-          </fieldset>
-          <fieldset className="space-y-5">
-            <legend className="text-[11px] tracking-luxe uppercase text-gold mb-3">Shipping</legend>
-            <input required placeholder="Address" className="w-full border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-            <div className="grid grid-cols-2 gap-5">
-              <input required placeholder="City" className="border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-              <input required placeholder="Postal Code" className="border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-            </div>
-            <input required placeholder="Country" className="w-full border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-          </fieldset>
-          <fieldset className="space-y-5">
-            <legend className="text-[11px] tracking-luxe uppercase text-gold mb-3">Payment</legend>
-            <input required placeholder="Card Number" className="w-full border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-            <div className="grid grid-cols-2 gap-5">
-              <input required placeholder="MM / YY" className="border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-              <input required placeholder="CVC" className="border-b border-border bg-transparent py-3 outline-none focus:border-gold" />
-            </div>
-          </fieldset>
-        </div>
-
-        <aside className="bg-champagne/40 p-8 h-fit">
-          <h3 className="font-display text-2xl mb-6">Order Summary</h3>
-          <ul className="divide-y divide-border">
+        <form onSubmit={handleSubmit} className="space-y-6">
+       
+          <div className="bg-muted-foreground rounded-xl p-4 space-y-3">
+            <h4 className="font-medium text-foreground">Resumo do Pedido</h4>
             {items.map((item) => (
-              <li key={item.id} className="py-4 flex gap-4">
-                <img src={item.image} alt={item.name} className="h-16 w-14 object-cover" />
-                <div className="flex-1 text-sm">
-                  <p className="font-display text-base">{item.name}</p>
-                  <p className="text-xs text-muted-foreground">Qty {item.quantity}</p>
-                </div>
-                <span className="text-sm">{fmt(item.price * item.quantity)}</span>
-              </li>
+              <div key={item.id} className="flex justify-between text-small">
+                <span className="text-accent-foreground">
+                  {item.name} × {item.quantity}
+                </span>
+                <span className="text-foreground">${item.price * item.quantity}</span>
+              </div>
             ))}
-            {items.length === 0 && <li className="py-6 text-sm text-center text-muted-foreground">Your cart is empty.</li>}
-          </ul>
-          <div className="border-t border-border pt-4 mt-4 flex justify-between font-display text-xl">
-            <span>Total</span><span>{fmt(totalPrice)}</span>
+            <div className="border-t border-border pt-3 flex justify-between font-semibold">
+              <span>Total</span>
+              <span>${totalPrice}</span>
+            </div>
           </div>
-          <button disabled={items.length === 0} className="mt-6 w-full bg-primary text-primary-foreground py-4 text-[11px] tracking-luxe uppercase hover:bg-ink transition disabled:opacity-50">
-            ✦ Complete Purchase
+
+       
+          <div className="space-y-4">
+            <h4 className="font-medium text-foreground">Informações de Entrega</h4>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="firstName">Seu Nome</Label>
+                <Input
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className=" bg-background rounded-lg"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="lastName">Sobrenome</Label>
+                <Input
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  className=" bg-blacground rounded-lg"
+                />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="bg-blacground rounded-lg"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="address">Endereço</Label>
+              <Input
+                id="address"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                required
+                className="bg-blacground rounded-lg"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="city">Cidade</Label>
+                <Input
+                  id="city"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                  className="bg-background rounded-lg"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="zipCode">CEP</Label>
+                <Input
+                  id="zipCode"
+                  name="zipCode"
+                  value={formData.zipCode}
+                  onChange={handleChange}
+                  required
+                  className="bg-background rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+         
+          <div className="space-y-4">
+            <h4 className="font-medium text-background">Informações de Pagamento</h4>
+            <div className="space-y-2">
+              <Label htmlFor="cardNumber">Número do Cartão</Label>
+              <Input
+                id="cardNumber"
+                name="cardNumber"
+                placeholder="1234 5678 9012 3456"
+                value={formData.cardNumber}
+                onChange={handleChange}
+                required
+                className="bg-background rounded-lg"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="expiry">Data de Expiração</Label>
+                <Input
+                  id="expiry"
+                  name="expiry"
+                  placeholder="MM/YY"
+                  value={formData.expiry}
+                  onChange={handleChange}
+                  required
+                  className="bg-background rounded-lg"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="cvv">CVV</Label>
+                <Input
+                  id="cvv"
+                  name="cvv"
+                  placeholder="123"
+                  value={formData.cvv}
+                  onChange={handleChange}
+                  required
+                  className="bg-background rounded-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm cursor-pointer font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+            style={{ backgroundColor: "#FF6B6B", color: "#FFFFFF" }}
+          >
+            {isSubmitting ? "Processando..." : `Pay $${totalPrice}`}
           </button>
-        </aside>
-      </form>
-    </div>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 };
 
-export default Checkout;
-
+export default CheckoutModal;

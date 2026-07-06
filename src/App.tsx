@@ -13,7 +13,9 @@ import { getProduct } from "./components/service/ProductService";
 import { Products } from "./components/service/Products";
 import type { Product } from "./types/products";
 import CartSheet from "./components/Layout/CartSheet";
-import CheckoutModal from "./components/Home/CheckoutModal";
+import ScrollToTop from "./components/ui/ScrollToTop";
+
+
 
 
 
@@ -37,6 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <CartProvider>
         <div className="min-h-screen flex flex-col">
           <Header />
@@ -49,10 +52,13 @@ function App() {
               } />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+           
             </Routes>
+           
           </main>
           <CartSheet />
-          <CheckoutModal />
+        
+              
           <Footer />
         </div>
       </CartProvider>

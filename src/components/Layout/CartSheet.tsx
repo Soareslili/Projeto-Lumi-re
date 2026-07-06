@@ -1,5 +1,5 @@
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useCart } from "../../Contexts/CartContext";
 import {
   Sheet,
@@ -19,13 +19,6 @@ const CartSheet = () => {
     totalItems,
     totalPrice,
   } = useCart();
-
-  const navigate = useNavigate();
-
-  const handleCheckout = () => {
-    closeCart();
-    navigate({ to: "/checkout" });
-  };
 
   return (
     <Sheet open={isCartOpen} onOpenChange={closeCart}>
@@ -116,12 +109,13 @@ const CartSheet = () => {
               <p className="text-xs text-accent-foreground/70">
                 Frete e impostos calculados na finalização da compra
               </p>
-              <button
-                onClick={handleCheckout}
-                className="w-full px-20 py-2 bg-primary rounded-full text-accent-foreground cursor-pointer font-medium mt-8"
+              <Link
+                to="/CheckoutModal"
+                onClick={closeCart}
+                className="block w-full text-center px-20 py-2 bg-primary rounded-full text-accent-foreground cursor-pointer font-medium mt-8"
               >
                 Finalizar Compra
-              </button>
+              </Link>
             </div>
           </>
         )}
