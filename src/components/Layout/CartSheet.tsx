@@ -1,5 +1,4 @@
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useCart } from "../../Contexts/CartContext";
 import {
   Sheet,
@@ -18,6 +17,7 @@ const CartSheet = () => {
     updateQuantity,
     totalItems,
     totalPrice,
+    openCheckout,
   } = useCart();
 
   return (
@@ -109,13 +109,13 @@ const CartSheet = () => {
               <p className="text-xs text-accent-foreground/70">
                 Frete e impostos calculados na finalização da compra
               </p>
-              <Link
-                to="/CheckoutModal"
-                onClick={closeCart}
+              <a
+
+                onClick={openCheckout}
                 className="block w-full text-center px-20 py-2 bg-primary rounded-full text-accent-foreground cursor-pointer font-medium mt-8"
               >
                 Finalizar Compra
-              </Link>
+              </a>
             </div>
           </>
         )}
