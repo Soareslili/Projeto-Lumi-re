@@ -1,41 +1,74 @@
 {
     "sucess": true,
     "products": [
- {
-  "productId": 1,
-  "name": "Colar de Diamantes Aurora",
-  "price": 4.295,
-  "category": "Colares",
-  "description": "Colar de diamantes Aurora é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com diamantes de alta qualidade, este colar adiciona um toque de brilho e glamour ao seu visual.",
-  "imageUrl": "/img/ColarPedra.png"
- },
+        {
+            "productId": 1,
+            "name": "Colar de Diamantes Aurora",
+            "price": 4.295,
+            "category": "Colares",
+            "description": "Colar de diamantes Aurora é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com diamantes de alta qualidade, este colar adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/ColarPedra.png"
+        },
+        {
+            "productId": 2,
+            "name": "Pulseira de Ouro Elegance",
+            "price": 2.125,
+            "category": "Pulseiras",
+            "description": "Pulseira de ouro Elegance é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com ouro de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/Brilhante.png"
+        },
+        {
+            "productId": 3,
+            "name": "Anel de Esmeralda Royal",
+            "price": 2.125,
+            "category": "Aneis",
+            "description": "Anel de esmeralda Royal é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com esmeraldas de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/Esmeralda.png"
+        },
+        {
+            "productId": 4,
+            "name": "Brincos de Safira Celestial",
+            "price": 1.299,
+            "category": "Brincos",
+            "description": "Brincos de safira Celestial é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com safiras de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/BrincosElegancia.png"
+        },
+        {
+            "productId": 5,
+            "name": "Pulseira Tennis Safira Real",
+            "price": 1.499,
+            "category": "Pulseiras",
+            "description": "Pulseira Tennis Safira Real é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com safiras de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/PulseiraAzul.png"
+        },
+        {
+            "productId": 6,
+            "name": "Anel de Safira Royal Blue",
+            "price": 3.899,
+            "category": "Aneis",
+            "description": "Anel de safira Royal Blue é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com safiras de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/AnelAzul.png"
+        },
 
- {
-  "productId": 2,
-  "name": "Pulseira de Ouro Elegance",
-  "price": 2.125,
-  "category": "Pulseiras",
-  "description": "Pulseira de ouro Elegance é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com ouro de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
-  "imageUrl": "/img/Brilhante.png"
- },
+         {
+            "productId": 7,
+            "name": "Brincos de Safira Elegance",
+            "price": 2.899,
+            "category": "Brincos",
+            "description": "Brincos de safira Elegance é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com safiras de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/SafiraAzul.png"
+        },
 
- {
-  "productId": 3,
-  "name": "Anel de Esmeralda Royal",
-  "price": 2.125,
-  "category": "Aneis",
-  "description": "Anel de esmeralda Royal é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com esmeraldas de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
-  "imageUrl": "/img/Esmeralda.png"
- },
+         {
+            "productId": 8,
+            "name": "Pulseira de Rubi Passion",
+            "price": 2.199,
+            "category": "Pulseiras",
+            "description": "Pulseira de rubi Passion é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com rubis de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/PassionRubi.png"
+        }
 
- {
-  "productId": 4,
-  "name": "Brincos de Safira Celestial",
-  "price": 1.299,
-  "category": "Brincos",
-  "description": "Brincos de safira Celestial é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com safiras de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
-  "imageUrl": "/img/BrincosElegancia.png"
- }
+
     ]
 }
-  
+
