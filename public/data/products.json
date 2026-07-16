@@ -1,5 +1,5 @@
 {
-    "sucess": true,
+    "success": true,
     "products": [
         {
             "productId": 1,
@@ -49,8 +49,7 @@
             "description": "Anel de safira Royal Blue é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com safiras de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
             "imageUrl": "/img/AnelAzul.png"
         },
-
-         {
+        {
             "productId": 7,
             "name": "Brincos de Safira Elegance",
             "price": 2.899,
@@ -58,17 +57,80 @@
             "description": "Brincos de safira Elegance é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com safiras de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
             "imageUrl": "/img/SafiraAzul.png"
         },
-
-         {
+        {
             "productId": 8,
             "name": "Pulseira de Rubi Passion",
             "price": 2.199,
             "category": "Pulseiras",
             "description": "Pulseira de rubi Passion é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com rubis de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
             "imageUrl": "/img/PassionRubi.png"
+        },
+        {
+            "productId": 9,
+            "name": "Colar de Safira Aurora",
+            "price": 3.499,
+            "category": "Colares",
+            "description": "Colar de safira Aurora é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com safiras de alta qualidade, este colar adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/ColarAurora.png"
+        },
+        {
+            "productId": 10,
+            "name": "Anel de Topázio Imperial",
+            "price": 3.199,
+            "category": "Aneis",
+            "description": "Anel de topázio Imperial é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com topázios de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/AnelTopazio.png"
+        },
+        {
+            "productId": 11,
+            "name": "Anel Solitário Diamante Aurora",
+            "price": 4.999,
+            "category": "Aneis",
+            "description": "Anel solitário de diamante Aurora é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com diamantes de alta qualidade, este anel adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/AnelDiamante.png"
+        },
+        {
+            "productId": 12,
+            "name": "Brincos de Ametista Duquesa",
+            "price": 1.899,
+            "category": "Brincos",
+            "description": "Brincos de ametista Duquesa é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com ametistas de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/BrincosDuquesa.png"
+        },
+        {
+            "productId": 13,
+            "name": "Brincos Argola Dourada Lumière",
+            "price": 1.299,
+            "category": "Brincos",
+            "description": "Brincos argola dourada Lumière é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feitos com materiais de alta qualidade, estes brincos adicionam um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/BrincosDourada.png"
+        },
+
+        {
+            "productId": 14,
+            "name": "Colar de Esmeralda Duquesa",
+            "price": 2.899,
+            "category": "Colares",
+            "description": "Colar de esmeralda Duquesa é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com esmeraldas de alta qualidade, este colar adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/ColarDuquesa.png"
+        },
+
+         {
+            "productId": 15,
+            "name": "Colar Gargantilha Pérola Clássica",
+            "price": 1.299,
+            "category": "Colares",
+            "description": "Colar gargantilha pérola clássica é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feito com pérolas de alta qualidade, este colar adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/PerolaClassica.png"
+        },
+
+         {
+            "productId": 16,
+            "name": "Pulseira Tennis Diamante Infinity",
+            "price": 3.499,
+            "category": "Pulseiras",
+            "description": "Pulseira tennis de diamante Infinity é uma peça elegante e sofisticada, perfeita para ocasiões especiais. Feita com diamantes de alta qualidade, esta pulseira adiciona um toque de brilho e glamour ao seu visual.",
+            "imageUrl": "/img/DiamanteInfinity.png"
         }
-
-
     ]
 }
-
