@@ -15,12 +15,18 @@ import CartSheet from "./components/Layout/CartSheet";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import CheckoutModal from "./components/page/Checkout";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 
 
 
 
 function App() {
+    useEffect(() => {
+    AOS.init();
+  }, []);
 
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -41,6 +47,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+       <AOS.init />
 
       <div className="min-h-screen flex flex-col">
         <Header />

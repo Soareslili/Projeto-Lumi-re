@@ -32,7 +32,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`text-xs font-medium uppercase tracking-widest px-4 py-2 transition-all ${
+              className={`text-xs font-medium uppercase cursor-pointer tracking-widest px-4 py-2 transition-all ${
                 activeCategory === cat
                   ? "border border-neutral-800 text-neutral-900"
                   : "text-neutral-400 hover:text-neutral-700"
@@ -48,7 +48,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
           {displayed.map((product) => (
             <div
               key={product.productId}
-              className="group flex flex-col cursor-pointer"
+              className="group flex flex-col "
               onClick={() => onProductClick(product)}
             >
               {/* Image */}
@@ -78,7 +78,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
                       image: product.imageUrl ?? "",
                     });
                   }}
-                  className="absolute bottom-0 left-0 flex w-full translate-y-full items-center justify-center gap-2 bg-neutral-900 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-transform duration-300 group-hover:translate-y-0"
+                  className="absolute bottom-0 left-0 flex w-full translate-y-full cursor-pointer items-center justify-center gap-2 bg-neutral-900 py-3 text-xs font-semibold uppercase tracking-widest text-white transition-transform duration-300 group-hover:translate-y-0"
                 >
                   <ShoppingCart size={14} />
                   Adicionar ao carrinho

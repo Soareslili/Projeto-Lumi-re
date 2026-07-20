@@ -63,7 +63,7 @@ const Hero = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {collections.map((c) => (
             <Link to={`/collections/${c.slug}`} key={c.slug} className="group relative overflow-hidden bg-champagne aspect-[3/4]">
-              <img src={c.image} alt={c.name} loading="lazy" className="reveal-img absolute inset-0 h-full w-full object-cover" />
+              <img src={c.image} alt={c.name} loading="lazy" className="reveal-img absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-accent-foreground/30 from-ink/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-primary-foreground">
                 <h3 className="font-Cormorant text-2xl text-white">{c.name}</h3>
@@ -124,9 +124,9 @@ const Hero = () => {
           <p className="text-[11px] tracking-luxe uppercase text-gold">Louvor Sussurrado</p>
           <h2 className="font-Cormorant text-4xl md:text-5xl mt-3">Amado por muitos</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 ">
           {testimonials.map((t) => (
-            <figure key={t.name} className="bg-[#F7F2E9] p-10 text-center">
+            <figure key={t.name} className="bg-[#F7F2E9] p-10 text-center ">
               <div className="flex justify-center gap-0.5 mb-4 text-accent">{Array.from({length:5}).map((_,i)=><Star key={i} className="h-3 w-3 fill-accent" />)}</div>
               <blockquote className="font-display text-gray-600 text-xl leading-relaxed">"{t.text}"</blockquote>
               <figcaption className="mt-6 text-[11px] tracking-luxe uppercase text-muted-foreground">{t.name} · {t.role}</figcaption>
