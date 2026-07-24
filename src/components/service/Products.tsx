@@ -25,7 +25,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
   return (
     <section id="products" className="py-24  bg-[#faf7f2]">
       <div className="container-custom px-8 mx-auto">
-        {/* Category tabs */}
+       
         <div className="mb-14 flex flex-wrap justify-center gap-8 sm:gap-10">
           
           {CATEGORIES.map((cat) => (
@@ -43,15 +43,19 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
           ))}
         </div>
 
-        {/* Product grid */}
+     
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {displayed.map((product) => (
+          {displayed.map((product, index) => (
             <div
               key={product.productId}
               className="group flex flex-col "
               onClick={() => onProductClick(product)}
+            data-aos="zoom-in"
+            data-aos-delay={index * 200}
+            data-aos-duration="1000"
             >
-              {/* Image */}
+     
+           
               <div className="relative overflow-hidden rounded-lg bg-neutral-100">
                 <img
                   src={product.imageUrl}
@@ -59,7 +63,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
                   className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                {/* Wishlist */}
+              
                 <button
                   onClick={(e) => e.stopPropagation()}
                   className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 shadow-sm transition-colors hover:bg-white"
@@ -67,7 +71,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
                   <Heart size={15} className="text-neutral-700" />
                 </button>
 
-                {/* Add to cart - aparece no hover */}
+            
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -85,7 +89,7 @@ export function Products({ products, onProductClick, showViewAll = false }: Prod
                 </button>
               </div>
 
-              {/* Info */}
+           
               <div className="mt-4 flex flex-col items-center gap-1.5 text-center">
                 <span className="text-[11px] font-medium uppercase tracking-widest text-neutral-400">
                   {product.category}

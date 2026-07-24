@@ -5,5 +5,5 @@ export async function getProduct() {
     const data = await response.json();
 
     console.log("Produtos carregados:", data);
-    return data.products as Product[]; // pega só o array de dentro
+    return data.products as Product[]; 
 }

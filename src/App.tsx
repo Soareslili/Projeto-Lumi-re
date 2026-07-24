@@ -47,7 +47,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-       <AOS.init />
+    
 
       <div className="min-h-screen flex flex-col">
         <Header />

@@ -42,7 +42,7 @@ const Hero = () => {
                         </Link>
                         <Link
                             to="/about"
-                            className="border border-primary-foreground/60 text-primary-foreground px-8 py-4 text-[11px] tracking-luxe uppercase hover:border-accent hover:text-accent transition"
+                            className=" bg-accent-foreground border border-primary-foreground/60 text-accent px-8 py-4 text-[11px] tracking-luxe uppercase hover:border-accent hover:text-accent transition"
                         >
                             Sobre Nós
                         </Link>
@@ -53,7 +53,7 @@ const Hero = () => {
         
 
 
-         {/* COLLECTIONS */}
+      
       <section className="py-28 mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center mb-16">
           <p className="text-[11px] tracking-luxe uppercase text-accent">Nossas Coleções</p>
@@ -95,12 +95,12 @@ const Hero = () => {
                       <li key={t} className="flex items-center gap-3"><span className="h-px w-6 bg-amber" />{t}</li>
                     ))}
                   </ul>
-                  <Link to="/about" className="inline-block mt-10 px-8 py-4 bg-primary text-primary-foreground text-[11px] tracking-luxe uppercase hover:bg-ink transition">Nossa história</Link>
+                  <Link to="/about" className="inline-block mt-10 px-8 py-4 bg-primary text-primary-foreground text-[11px] tracking-luxe uppercase transition-transform hover:scale-105">Nossa história</Link>
                 </div>
               </div>
             </section>
 
-            {/* GALLERY */}
+          
       <section className="py-20 bg-[#0C0806] text-primary-foreground">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="text-center mb-14">
@@ -118,15 +118,20 @@ const Hero = () => {
         </div>
       </section>
 
-       {/* TESTIMONIALS */}
+    
       <section className="py-28 mx-auto max-w-6xl px-6 lg:px-10">
         <div className="text-center mb-14">
           <p className="text-[11px] tracking-luxe uppercase text-gold">Louvor Sussurrado</p>
           <h2 className="font-Cormorant text-4xl md:text-5xl mt-3">Amado por muitos</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8 ">
-          {testimonials.map((t) => (
-            <figure key={t.name} className="bg-[#F7F2E9] p-10 text-center ">
+          {testimonials.map((t, index) => (
+            <figure key={t.name} 
+            className="bg-[#F7F2E9] p-10 text-center "
+            data-aos="fade-up"
+            data-aos-delay={index * 200}
+            data-aos-duration="1000"
+            >
               <div className="flex justify-center gap-0.5 mb-4 text-accent">{Array.from({length:5}).map((_,i)=><Star key={i} className="h-3 w-3 fill-accent" />)}</div>
               <blockquote className="font-display text-gray-600 text-xl leading-relaxed">"{t.text}"</blockquote>
               <figcaption className="mt-6 text-[11px] tracking-luxe uppercase text-muted-foreground">{t.name} · {t.role}</figcaption>
@@ -135,7 +140,7 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* NEWSLETTER */}
+    
       <section className="py-28 bg-[#F7F2E9]">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <p className="text-[11px] tracking-luxe uppercase text-gold">Lumière Privée</p>
@@ -143,7 +148,7 @@ const Hero = () => {
           <p className="mt-5 text-muted-foreground">Receba lançamentos exclusivos, histórias do ateliê e inspirações refinadas — entregues com cuidado.</p>
           <form className="mt-10 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input type="email" required placeholder="Seu email" className="flex-1 bg-alt-foreground border border-gray-400 px-5 py-4 text-sm outline-none focus:border-gold transition" />
-            <button className="bg-primary text-primary-foreground cursor-pointer px-8 py-4 text-[11px] tracking-luxe uppercase hover:bg-ink transition">Inscrever-se</button>
+            <button className="bg-primary text-primary-foreground cursor-pointer px-8 py-4 text-[11px] tracking-luxe uppercase transition-transform hover:scale-105">Inscrever-se</button>
           </form>
         </div>
       </section>
