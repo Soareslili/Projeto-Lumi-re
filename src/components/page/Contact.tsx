@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+
 import { Mail, Phone, MapPin } from "lucide-react";
 import {FaInstagram } from "react-icons/fa6";
 
@@ -45,15 +45,5 @@ const Contact = () => {
 export default Contact;
 
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Lumière Maison" },
-      { name: "description", content: "Visit our Paris boutique or reach our private concierge." },
-      { property: "og:title", content: "Contact — Lumière Maison" },
-      { property: "og:description", content: "Speak with our private jewelry concierge." },
-    ],
-  }),
-  component: Contact,
-});
+
 
